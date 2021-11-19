@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "923060792159",
+    "project_id": "studygroup-50e48",
+    "storage_bucket": "studygroup-50e48.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:923060792159:android:7e571c120d03613a0224ea",
+        "android_client_info": {
+          "package_name": "com.helloiris.study.group"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "923060792159-sm7418v6rpldu1sdb605e96l7i7uqav4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEvu-1hPHEwa6EVpm9-qPrpAvEQIFIOF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "923060792159-sm7418v6rpldu1sdb605e96l7i7uqav4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
