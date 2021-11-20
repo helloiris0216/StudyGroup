@@ -46,7 +46,7 @@ public class FCMService extends FirebaseMessagingService {
 
     // intent key.
     public enum IntentKey {
-        NOTIFICATION_DATA
+        data_title
     }
 
 
@@ -116,7 +116,8 @@ public class FCMService extends FirebaseMessagingService {
         // create activity used after intent object.
         Intent intent = new Intent().addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         if (data != null) {
-            intent.putExtra(IntentKey.NOTIFICATION_DATA.toString(), data);
+            intent.putExtra(IntentKey.data_title.toString(), data);
+            intent.setClass(this, MainActivity.class);
         }
 
         // get returned activity object.

@@ -101,7 +101,7 @@ public class SplashActivity extends AppCompatActivity {
 
         setIntent(intent);
 
-        Log.v(_TAG, String.format("onNewIntent -> FCM data -> content-value: {data = %s}", intent.getStringExtra(FCMService.IntentKey.NOTIFICATION_DATA.toString())));
+        Log.v(_TAG, String.format("onNewIntent -> FCM data -> content-value: {data = %s}", intent.getStringExtra(FCMService.IntentKey.data_title.toString())));
     }
 
 

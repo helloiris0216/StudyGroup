@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
     // the log tag.
     private final String _TAG = Basic.getClassTag(MainActivity.class);
 
+    // a flag when the device receives the notification data from the Intent.
+    private boolean hasNotificationData = false;
+
 
     /**
      * Called when the activity is starting.
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         String logTag = "onCreate";
 
         // create a notification channel for the Android Oreo+
+        // if you don't, the device won't get the notification in the foreground.
         createNotificationChannel();
 
         // get the FCM token.
@@ -71,11 +75,24 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         Log.d(_TAG, "onResume");
 
-        // 當 app 在背景接收到通知時，在這邊取得 data，key 要寫通知內的 json key.
-        if (this.getIntent() == null) return;
-        if (this.getIntent().getStringExtra("data_title") != null) {
-            Log.v(_TAG, String.format("onResume -> FCM data -> content-value: {data = %s}", this.getIntent().getStringExtra("data_title")));
-        }
+//        // 當 app 在背景接收到通知時，在這邊取得 data，key 要寫通知內的 json key.
+//        if (this.getIntent() == null | this.hasNotificationData) return;
+//        if (this.getIntent().getStringExtra(FCMService.IntentKey.data_title.toString()) != null) {
+//            String dataTitle = this.getIntent().getStringExtra(FCMService.IntentKey.data_title.toString());
+//            Log.v(_TAG, String.format("onResume -> FCM data -> content-value: {data title = %s}", dataTitle));
+//        }
+    }
+
+
+    /**
+     * Called when you are no longer visible to the user.
+     */
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        this.hasNotificationData = false;
+        Log.d(_TAG, "onStop -> hasNotificationData = " + this.hasNotificationData);
     }
 
 
@@ -106,8 +123,11 @@ public class MainActivity extends AppCompatActivity {
         super.onNewIntent(intent);
 
         setIntent(intent);
-        Log.v(_TAG, String.format("onNewIntent -> FCM data -> content-value: {data = %s}", intent.getStringExtra(FCMService.IntentKey.NOTIFICATION_DATA.toString())));
-        Log.v(_TAG, String.format("onNewIntent -> FCM data -> content-value: {data = %s}", intent.getStringExtra("data_title")));
+
+        // 當 app 在背景接收到通知時，在這邊取得 data，key 要寫通知內的 json key.
+        Log.v(_TAG, String.format("onNewIntent -> FCM data -> content-value: {data title = %s}",
+                intent.getStringExtra(FCMService.IntentKey.data_title.toString())));
+        this.hasNotificationData = true;
     }
 
 
