@@ -4,8 +4,19 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?windowActionBar"
-    app:title="Title"
-    app:titleCentered="true"
-    android:id="@+id/actionbar">
+    app:title="Title">
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/shopping_cart"
+        android:background="@drawable/ic_baseline_add_shopping_cart_24" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/favorites"
+        android:background="@drawable/ic_baseline_favorite_24"
+        android:layout_marginStart="10dp" />
 
 </com.google.android.material.appbar.MaterialToolbar>

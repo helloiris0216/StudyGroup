@@ -23,7 +23,10 @@
             android:value="@string/fcm_channel_id" />
 
         <!-- Activities -->
-        <activity android:name=".MainActivity" android:screenOrientation="portrait" android:launchMode="singleTop" >
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.StudyGroup.Actionbar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -38,9 +41,6 @@
 <!--        </activity>-->
 
         <!-- Services -->
-        <!-- A service that extends FirebaseMessagingService.
-        This is required if you want to do any message handling beyond receiving notifications on apps in the background.
-        To receive notifications in foregrounded apps, to receive data payload, to send upstream messages, and so on, you must extend this service -->
         <service
             android:name=".FCMService" android:exported="false">
             <intent-filter>

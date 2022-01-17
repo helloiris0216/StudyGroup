@@ -1,6 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:layout_gravity="center">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/shopping_cart"
+        android:background="@drawable/ic_baseline_add_shopping_cart_24" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/favorites"
+        android:background="@drawable/ic_baseline_favorite_24"
+        android:layout_marginStart="10dp" />
+
+</LinearLayout>
