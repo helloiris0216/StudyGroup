@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
 
         // get the FCM token.
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> Log.i(_TAG, String.format("%s -> FCM token: %s", logTag, task.getResult())));
+
+        onNewIntent(getIntent());
     }
 
 

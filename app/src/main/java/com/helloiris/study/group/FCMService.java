@@ -46,7 +46,26 @@ public class FCMService extends FirebaseMessagingService {
 
     // intent key.
     public enum IntentKey {
-        data_title
+        data_title(0) {
+            @Override
+            public int getValue(int value) {
+                return 0;
+            }
+        },
+        data_body(1),
+        title(2),
+        body(3);
+
+        private int value;
+
+        IntentKey(int value) {
+            this.value = value;
+        }
+
+
+        public int getValue(int value) {
+            return this.value = value;
+        }
     }
 
 
@@ -86,7 +105,7 @@ public class FCMService extends FirebaseMessagingService {
         if (remoteMessage.getData().size() > 0) {
             Log.d(_TAG, String.format("Message data payload: \n%s", new GsonBuilder().setPrettyPrinting().create().toJson(remoteMessage.getData())));
 
-            dataTitle = remoteMessage.getData().get("data_title");
+                dataTitle = remoteMessage.getData().get("data_title");
         }
 
         // Check if message contains a notification payload.
