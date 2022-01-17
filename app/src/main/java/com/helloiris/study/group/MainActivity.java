@@ -9,7 +9,7 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.android.material.appbar.MaterialToolbar;
 
 /*
  * Package com.helloiris.study.group
@@ -57,16 +57,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         String logTag = "onCreate";
 
-        // create a notification channel for the Android Oreo+
-        // if you don't, the device won't get the notification in the foreground.
-        createNotificationChannel();
 
-        // get the FCM token.
-        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> Log.i(_TAG, String.format("%s -> FCM token: %s", logTag, task.getResult())));
+//        // create a notification channel for the Android Oreo+
+//        // if you don't, the device won't get the notification in the foreground.
+//        createNotificationChannel();
+//
+//        // get the FCM token.
+//        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> Log.i(_TAG, String.format("%s -> FCM token: %s", logTag, task.getResult())));
 
-        onNewIntent(getIntent());
+//        onNewIntent(getIntent());
+
+
+//        ActionBar actionBar = getActionBar();
+//        actionBar.setCustomView(R.layout.view_actionbar);
+//        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+//        actionBar.setBackgroundDrawable(new ColorDrawable(0xF505050));
     }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        MaterialToolbar toolbar = this.findViewById(R.id.actionbar);
+        this.setSupportActionBar(toolbar);
+
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
 
     /**
      * Called after onRestoreInstanceState(Bundle), onRestart(), or onPause()
