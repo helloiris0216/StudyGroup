@@ -2,6 +2,8 @@ package com.helloiris.study.group;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -48,27 +50,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         String logTag = "onCreate";
 
-        AppbarManager.getInstance().initActionbar(this);
+        Button selectorBtn = this.findViewById(R.id.selector_btn);
+        selectorBtn.setOnClickListener(v -> {
+            selectorBtn.setSelected(true);
+            Log.d(_TAG, "onCreate: pressed!");
+        });
 
-
-
-//        Toolbar toolbar = this.findViewById(R.id.toolbar);
-//        Button shoppingCart = toolbar.findViewById(R.id.shopping_cart);
-//        Button favorites = toolbar.findViewById(R.id.favorites);
-//
-//        shoppingCart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.d(_TAG, "onClick: shopping cart");
-//            }
-//        });
-//
-//        favorites.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.d(_TAG, "onClick: favorites");
-//            }
-//        });
+        TextView tv = this.findViewById(R.id.text);
+        tv.setOnClickListener(v -> selectorBtn.setSelected(false));
     }
 
 

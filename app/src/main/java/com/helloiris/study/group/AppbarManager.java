@@ -37,7 +37,7 @@ public class AppbarManager {
 
 
     public void initActionbar(AppCompatActivity activity) {
-        this.actionBar = activity.findViewById(R.id.toolbar);
+//        this.actionBar = activity.findViewById(R.id.toolbar);
 
         activity.setSupportActionBar(this.actionBar);
 
